@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cisrke7khircj"]
+
+[ext_resource type="Script" uid="uid://c3nsg86c6xh1y" path="res://Scripts/Player.cs" id="1_c7xwe"]
+[ext_resource type="Texture2D" uid="uid://cq01pfsg0715t" path="res://Ass/Kurowanjjyang_Kyoko_Magic_Stacked.png" id="2_c7xwe"]
+[ext_resource type="Texture2D" uid="uid://b2c3n8q60ki4" path="res://Ass/Tracen_Academy.webp" id="3_c7xwe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lwxgr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c7xwe"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2fcgv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c7xwe"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qnqh0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lymix"]
+
+[node name="Level Scene" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+z_index = 10
+script = ExtResource("1_c7xwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(0.975, 0.975)
+shape = SubResource("CircleShape2D_lwxgr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_c7xwe")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -5
+texture_filter = 1
+offset_left = -4988.0
+offset_top = -2822.0
+offset_right = -3988.0
+offset_bottom = -2259.0
+scale = Vector2(10, 10)
+texture = ExtResource("3_c7xwe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.155, 0.155)
+
+[node name="Boundary" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_c7xwe")
+
+[node name="Right" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(1500, 0)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_2fcgv")
+
+[node name="Left" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(-1500, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_c7xwe")
+
+[node name="Bottom" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(0, 2000)
+shape = SubResource("WorldBoundaryShape2D_qnqh0")
+
+[node name="Top" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(0, -2000)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_lymix")
