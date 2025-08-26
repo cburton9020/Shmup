@@ -450,7 +450,7 @@ sprite_frames = SubResource("SpriteFrames_c2v8t")
 animation = &"MedStar"
 frame_progress = 0.952085
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Projectile1Hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Projectile1Hitbox"]
 shape = SubResource("CircleShape2D_co7aw")
