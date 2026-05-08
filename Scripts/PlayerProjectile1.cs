@@ -30,9 +30,11 @@ public partial class PlayerProjectile1 : CharacterBody2D
         lifespanTimer.Start();
 	}
 	private void OnLifespanEnded()
-    {
-        QueueFree(); // Remove the projectile
-    }
+	{
+		QueueFree(); // Remove the projectile
+	}
+	
+	
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
